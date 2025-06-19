@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FantasyBet - Coming Soon</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        font-size: 16px;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #000b1d;
+        font-family: "Roboto Condensed", Arial, sans-serif;
+        color: #ffe49c;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .logo {
+        position: relative;
+        z-index: 2;
+      }
+      .logo-gradient {
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(
+          circle,
+          rgba(0, 165, 127, 0.2) 0% 10%,
+          transparent 50%
+        );
+        z-index: 1;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .logo img {
+        width: 19rem;
+        max-width: 95vw;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .tagline {
+        font-size: 2rem;
+        font-weight: 400;
+        margin: 1.5rem 0;
+        color: #ffffff;
+        letter-spacing: 1px;
+        text-align: center;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+      }
+      .coming-soon {
+        font-size: 4rem;
+        font-weight: 700;
+        margin: 0.5rem 0 1rem 0;
+        color: #ffe49c;
+        text-align: center;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+        z-index: 1;
+      }
+      .notify-form {
+        display: flex;
+        background: rgba(20, 34, 46, 0.7);
+        border-radius: 2.5rem;
+        box-shadow: 0 0.125rem 1rem 0 rgba(0, 0, 0, 0.18);
+        padding: 0.5rem 0.5rem 0.5rem 1.75rem;
+        align-items: center;
+        margin-bottom: 2rem;
+        max-width: 27.5rem;
+        width: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        z-index: 1;
+      }
+      .notify-form input[type="email"] {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-size: 1.18rem;
+        flex: 0 1 11.25rem;
+        max-width: 11.25rem;
+        padding: 0.875rem 0;
+        font-family: inherit;
+        letter-spacing: 0.5px;
+      }
+      .notify-form input[type="email"]::placeholder {
+        color: #b2bfc9;
+        opacity: 1;
+        font-size: 1.13rem;
+      }
+      .notify-form button {
+        background: linear-gradient(90deg, #23d18b 0%, #1bbd76 100%);
+        color: #fff;
+        font-weight: 700;
+        border: 0.125rem solid #1e9e6a;
+        border-radius: 2rem;
+        padding: 0.875rem 2.375rem;
+        font-size: 1.18rem;
+        margin-left: 1.125rem;
+        cursor: pointer;
+        box-shadow: 0 0.125rem 0.5rem 0 rgba(35, 209, 139, 0.12);
+        transition: background 0.2s, border 0.2s;
+      }
+      .notify-form button:hover {
+        background: #1bbd76;
+        border-color: #23d18b;
+      }
+      .socials {
+        display: flex;
+        gap: 2.25rem;
+        margin-top: 1.125rem;
+        margin-bottom: 0;
+      }
+      .socials a {
+        color: #fff;
+        font-size: 2.2rem;
+        display: flex;
+        align-items: center;
+        transition: color 0.2s;
+      }
+      .socials a:hover {
+        color: #23d18b;
+      }
+      .contact-link {
+        display: block;
+        margin: 2.75rem auto 0 auto;
+        color: #b2bfc9;
+        font-size: 1.18rem;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: color 0.2s;
+        text-align: center;
+      }
+      .contact-link:hover {
+        color: #23d18b;
+      }
+      .bold {
+        font-weight: 700;
+      }
+      @media (max-width: 600px) {
+        .logo img {
+          width: 13.125rem;
+        }
+        .logo-gradient {
+          width: 21.25rem;
+          height: 21.25rem;
+        }
+        .coming-soon {
+          font-size: 2.1rem;
+        }
+        .notify-form {
+          flex-direction: column;
+          align-items: stretch;
+          padding: 0.875rem 0.625rem 0.875rem 0.625rem;
+        }
+        .notify-form button {
+          margin: 0.875rem 0 0 0;
+          width: 100%;
+        }
+        .contact-link {
+          font-size: 1rem;
+          margin-top: 1.5rem;
+        }
+        .socials {
+          gap: 1.375rem;
+        }
+      }
+      .invite-text {
+        color: #f7f7f2;
+        font-size: 1.15rem;
+        text-align: center;
+        margin-bottom: 1.25rem;
+        line-height: 1.6;
+        max-width: 32rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="position: relative">
+      <div class="logo-gradient"></div>
+      <div class="logo">
+        <img src="fantasybet_logo_transparent.png" alt="FantasyBet Logo" />
+      </div>
+      <div class="tagline">
+        Where fantasy sports meets <span class="bold">real money.</span>
+      </div>
+      <div class="coming-soon">COMING SOON</div>
+      <div class="invite-text">
+        Be the first to draft, bet & win. Drop your email and we'll send an
+        invite when FantasyBet goes live!
+      </div>
+      <form class="notify-form" autocomplete="off">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">NOTIFY ME</button>
+      </form>
+
+      <div class="socials">
+        <a href="#" aria-label="Twitter">
+          <!-- Twitter SVG -->
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M28 8.5a10.6 10.6 0 0 1-3 0.8A5.2 5.2 0 0 0 27.2 7a10.4 10.4 0 0 1-3.3 1.3A5.2 5.2 0 0 0 16 13.5c0 .4 0 .8.1 1.2A14.8 14.8 0 0 1 5 7.8a5.2 5.2 0 0 0 1.6 7A5.2 5.2 0 0 1 4 14v.1a5.2 5.2 0 0 0 4.2 5.1c-.4.1-.8.2-1.2.2-.3 0-.6 0-.9-.1a5.2 5.2 0 0 0 4.8 3.6A10.4 10.4 0 0 1 4 25.1a14.7 14.7 0 0 0 8 2.3c9.6 0 14.8-8 14.8-14.8v-.7A10.6 10.6 0 0 0 28 8.5z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <!-- Instagram SVG -->
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="7"
+              y="7"
+              width="18"
+              height="18"
+              rx="5"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+            <circle
+              cx="16"
+              cy="16"
+              r="5"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+            <circle cx="22.5" cy="9.5" r="1.5" fill="currentColor" />
+          </svg>
+        </a>
+      </div>
+      <!-- <a href="#" class="contact-link">Contact</a> -->
+    </div>
+  </body>
+</html>
