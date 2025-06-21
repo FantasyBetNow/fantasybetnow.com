@@ -135,6 +135,50 @@
         opacity: 1;
         font-size: 1.13rem;
       }
+      /* Prevent weird autocomplete styling on all browsers */
+      .notify-form input[type="email"]:-webkit-autofill,
+      .notify-form input[type="email"]:-webkit-autofill:hover,
+      .notify-form input[type="email"]:-webkit-autofill:focus,
+      .notify-form input[type="email"]:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+        -webkit-text-fill-color: #fff !important;
+        font-size: 1.18rem !important;
+        font-family: "Roboto Condensed", Arial, sans-serif !important;
+        transition: background-color 5000s ease-in-out 0s;
+        background-color: transparent !important;
+      }
+      /* Firefox autocomplete styling */
+      .notify-form input[type="email"]:-moz-autofill {
+        background-color: transparent !important;
+        color: #fff !important;
+        font-size: 1.18rem !important;
+        font-family: "Roboto Condensed", Arial, sans-serif !important;
+      }
+      /* Edge autocomplete styling */
+      .notify-form input[type="email"]:-ms-input-placeholder {
+        color: #b2bfc9 !important;
+      }
+      /* iOS Safari autocomplete styling */
+      .notify-form input[type="email"] {
+        -webkit-appearance: none;
+        border-radius: 0;
+      }
+      /* Remove iOS Safari default styling */
+      .notify-form input[type="email"]::-webkit-search-decoration,
+      .notify-form input[type="email"]::-webkit-search-cancel-button,
+      .notify-form input[type="email"]::-webkit-search-results-button,
+      .notify-form input[type="email"]::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+      }
+      /* Remove Chrome/Safari autofill styling */
+      .notify-form input[type="email"]::-webkit-contacts-auto-fill-button,
+      .notify-form input[type="email"]::-webkit-credentials-auto-fill-button {
+        visibility: hidden;
+        display: none !important;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+      }
       .notify-form button {
         font-family: "Roboto Condensed", Arial, sans-serif;
         background: linear-gradient(90deg, #23d18b 0%, #1bbd76 100%);
