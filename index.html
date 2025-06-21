@@ -22,7 +22,6 @@
       }
       body {
         margin: 0;
-        min-height: 100vh;
         background: #000b1d;
         font-family: "Roboto Condensed", Arial, sans-serif;
         color: #ffe49c;
@@ -32,12 +31,16 @@
         align-items: center;
         position: relative;
         height: 100vh;
+        width: 100vw;
         overflow: hidden;
       }
       .container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 100%;
+        /* width: 100%; */
+        padding: 3rem 1rem 2rem 1rem;
       }
       .logo {
         position: relative;
@@ -60,7 +63,7 @@
         pointer-events: none;
       }
       .logo img {
-        width: 19rem;
+        width: 15rem;
         max-width: 95vw;
         height: auto;
         display: block;
@@ -72,15 +75,17 @@
         font-size: 2rem;
         font-weight: 400;
         margin: 1.5rem 0;
-        color: #ffffff;
+        color: #f7f7f2;
         letter-spacing: 1px;
         text-align: center;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+      }
+      .tagline br {
+        display: none;
       }
       .coming-soon {
         font-size: 4rem;
         font-weight: 700;
-        margin: 0.5rem 0 1rem 0;
+        margin-bottom: 1.5rem;
         color: #ffe49c;
         text-align: center;
         text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
@@ -91,13 +96,14 @@
         background: rgba(20, 34, 46, 0.7);
         border-radius: 2.5rem;
         box-shadow: 0 0.125rem 1rem 0 rgba(0, 0, 0, 0.18);
-        padding: 0.5rem 0.5rem 0.5rem 1.75rem;
+        padding-left: 1.5rem;
         align-items: center;
-        margin-bottom: 2rem;
-        max-width: 27.5rem;
-        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        width: 90%;
         border: 2px solid rgba(255, 255, 255, 0.08);
         z-index: 1;
+        white-space: nowrap;
       }
       .notify-form input[type="email"] {
         background: transparent;
@@ -106,7 +112,7 @@
         color: #fff;
         font-size: 1.18rem;
         flex: 0 1 11.25rem;
-        max-width: 11.25rem;
+        max-width: 20rem;
         padding: 0.875rem 0;
         font-family: inherit;
         letter-spacing: 0.5px;
@@ -117,24 +123,35 @@
         font-size: 1.13rem;
       }
       .notify-form button {
+        font-family: "Roboto Condensed", Arial, sans-serif;
         background: linear-gradient(90deg, #23d18b 0%, #1bbd76 100%);
         color: #fff;
-        font-weight: 700;
+        font-weight: 500;
         border: 0.125rem solid #1e9e6a;
         border-radius: 2rem;
-        padding: 0.875rem 2.375rem;
+        padding: 1rem 2rem;
         font-size: 1.18rem;
-        margin-left: 1.125rem;
+        margin-left: 0.75rem;
         cursor: pointer;
         box-shadow: 0 0.125rem 0.5rem 0 rgba(35, 209, 139, 0.12);
         transition: background 0.2s, border 0.2s;
       }
       .notify-form button:hover {
-        background: #1bbd76;
-        border-color: #23d18b;
+        opacity: 0.8;
+      }
+      .notify-form button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background: #666;
+        border-color: #555;
+        color: #ccc;
+      }
+      .notify-form button:disabled:hover {
+        opacity: 0.6;
       }
       .socials {
         display: flex;
+        fill: white;
         gap: 2.25rem;
         margin-top: 1.125rem;
         margin-bottom: 0;
@@ -166,23 +183,19 @@
         font-weight: 700;
       }
       @media (max-width: 600px) {
+        .tagline br {
+          display: inline;
+        }
         .logo img {
           width: 13.125rem;
         }
         .logo-gradient {
-          width: 21.25rem;
-          height: 21.25rem;
+          top: 50%;
         }
         .coming-soon {
           font-size: 2.1rem;
         }
-        .notify-form {
-          flex-direction: column;
-          align-items: stretch;
-          padding: 0.875rem 0.625rem 0.875rem 0.625rem;
-        }
         .notify-form button {
-          margin: 0.875rem 0 0 0;
           width: 100%;
         }
         .contact-link {
@@ -210,66 +223,90 @@
         <img src="fantasybet_logo_transparent.png" alt="FantasyBet Logo" />
       </div>
       <div class="tagline">
-        Where fantasy sports meets <span class="bold">real money.</span>
+        <span class="bold">Bet on Fantasy.</span><br />
+        Not just sports.
       </div>
       <div class="coming-soon">COMING SOON</div>
       <div class="invite-text">
         Be the first to draft, bet & win. Drop your email and we'll send an
         invite when FantasyBet goes live!
       </div>
-      <form class="notify-form" autocomplete="off">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">NOTIFY ME</button>
+      <form
+        id="notify-form"
+        class="notify-form"
+        autocomplete="on"
+        action="https://script.google.com/macros/s/AKfycbzAykuLF8c5iXGGnnswMAe-A90-PgicnHYjUukv-grcoOUN9mLCvEUSgSL1NeRKUGJrQQ/exec"
+        method="post"
+        target="hiddenFrame"
+      >
+        <input
+          id="email-input"
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          autocomplete="on"
+          required
+        />
+        <button id="submit-btn" type="submit">Subscribe</button>
       </form>
 
       <div class="socials">
-        <a href="#" aria-label="Twitter">
+        <a
+          href="https://x.com/fantasybetnow"
+          target="_blank"
+          aria-label="Twitter"
+        >
           <!-- Twitter SVG -->
           <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
           >
             <path
-              d="M28 8.5a10.6 10.6 0 0 1-3 0.8A5.2 5.2 0 0 0 27.2 7a10.4 10.4 0 0 1-3.3 1.3A5.2 5.2 0 0 0 16 13.5c0 .4 0 .8.1 1.2A14.8 14.8 0 0 1 5 7.8a5.2 5.2 0 0 0 1.6 7A5.2 5.2 0 0 1 4 14v.1a5.2 5.2 0 0 0 4.2 5.1c-.4.1-.8.2-1.2.2-.3 0-.6 0-.9-.1a5.2 5.2 0 0 0 4.8 3.6A10.4 10.4 0 0 1 4 25.1a14.7 14.7 0 0 0 8 2.3c9.6 0 14.8-8 14.8-14.8v-.7A10.6 10.6 0 0 0 28 8.5z"
-              fill="currentColor"
+              d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
             />
           </svg>
         </a>
-        <a href="#" aria-label="Instagram">
+        <a
+          href="https://www.instagram.com/fantasybetnow/"
+          target="_blank"
+          aria-label="Instagram"
+        >
           <!-- Instagram SVG -->
           <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
           >
-            <rect
-              x="7"
-              y="7"
-              width="18"
-              height="18"
-              rx="5"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
+            <path
+              fill="currentColor"
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
             />
-            <circle
-              cx="16"
-              cy="16"
-              r="5"
-              stroke="currentColor"
-              stroke-width="2"
-              fill="none"
-            />
-            <circle cx="22.5" cy="9.5" r="1.5" fill="currentColor" />
           </svg>
         </a>
       </div>
       <!-- <a href="#" class="contact-link">Contact</a> -->
     </div>
+    <iframe name="hiddenFrame" style="display: none"></iframe>
   </body>
+  <script>
+    const form = document.getElementById("notify-form");
+    const input = document.getElementById("email-input");
+    const button = document.getElementById("submit-btn");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      try {
+        form.submit(); // Send to iframe
+        button.textContent = "Thanks!";
+        input.disabled = true;
+        button.disabled = true;
+      } catch (err) {
+        console.error("Form submission failed:", err);
+      }
+    });
+  </script>
 </html>
