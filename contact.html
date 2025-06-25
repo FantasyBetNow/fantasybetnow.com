@@ -354,7 +354,7 @@
         Have questions? Want to get in touch? <br />
         Send us a message!
       </div>
-      <form id="contact-form" class="contact-form" autocomplete="on">
+      <form id="contact-form" class="contact-form" autocomplete="on" netlify>
         <input type="text" name="name" placeholder="Name" required />
         <input type="email" name="email" placeholder="Email" required />
         <textarea
@@ -373,31 +373,11 @@
     const button = document.getElementById("submit-btn");
 
     form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      formData.append("_captcha", "false");
-
-      try {
-        const res = await fetch(
-          "https://formsubmit.co/ajax/bb4a331f71783bc539976d5dd22e685a",
-          {
-            method: "POST",
-            headers: { Accept: "application/json" },
-            body: formData,
-          }
-        );
-
-        if (res.ok) {
-          form.reset();
-          button.textContent = "Thanks!";
-          button.disabled = true;
-        } else {
-          console.log(res);
-        }
-      } catch (error) {
-        console.error("Submission error:", error);
-      }
+      setTimeout(() => {
+        form.reset();
+        button.textContent = "Thanks!";
+        button.disabled = true;
+      }, 100);
     });
   </script>
 </html>
