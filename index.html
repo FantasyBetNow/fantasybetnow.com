@@ -30,6 +30,11 @@
       rel="stylesheet"
     />
     <style>
+      html,
+      body {
+        width: 100vw;
+        overflow-x: hidden;
+      }
       html {
         font-size: 16px;
       }
@@ -44,8 +49,6 @@
         align-items: center;
         position: relative;
         height: 100vh;
-        width: 100vw;
-        overflow: hidden;
       }
       .container {
         display: flex;
@@ -113,8 +116,8 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 1.5rem;
-        width: 40%;
         border: 2px solid rgba(255, 255, 255, 0.08);
+        width: 40%;
         z-index: 1;
         white-space: nowrap;
       }
@@ -124,9 +127,8 @@
         outline: none;
         color: #fff;
         font-size: 1.18rem;
-        flex: 0 1 11.25rem;
+        flex: 1 1 auto;
         max-width: 20rem;
-        padding: 0.875rem 0;
         font-family: inherit;
         letter-spacing: 0.5px;
       }
@@ -225,7 +227,7 @@
       }
       .contact-link {
         display: block;
-        margin: 2.75rem auto 0 auto;
+        margin: 1.5rem auto 0 auto;
         color: #b2bfc9;
         font-size: 1.18rem;
         text-decoration: none;
@@ -269,9 +271,15 @@
         }
         .notify-form {
           width: 80%;
+          box-sizing: border-box;
+          padding: 0;
+        }
+        .notify-form input[type="email"] {
+          padding: 0.875rem 0.875rem 0.875rem 1rem;
         }
         .notify-form button {
           width: 100%;
+          box-sizing: border-box;
         }
         .contact-link {
           font-size: 1rem;
@@ -354,7 +362,7 @@
           </svg>
         </a>
       </div>
-      <!-- <a href="#" class="contact-link">Contact</a> -->
+      <a href="contact.html" class="contact-link">Contact</a>
     </div>
     <iframe name="hiddenFrame" style="display: none"></iframe>
   </body>

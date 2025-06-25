@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FantasyBet - Contact Us</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="fantasybet_logo_transparent.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="fantasybet_logo_transparent.png"
+      sizes="16x16"
+    />
+    <link rel="apple-touch-icon" href="fantasybet_logo_transparent.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        width: 100vw;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        margin: 0;
+        background: #000b1d;
+        font-family: "Roboto Condensed", Arial, sans-serif;
+        color: #ffe49c;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        padding: 3rem 1rem 2rem 1rem;
+      }
+
+      .logo {
+        position: relative;
+        z-index: 2;
+      }
+
+      .logo-gradient {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 100%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 165, 127, 0.2) 0% 10%,
+          transparent 50%
+        );
+        z-index: 1;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .logo img {
+        width: 6rem;
+        max-width: 95vw;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-heading {
+        font-size: 4rem;
+        font-weight: 700;
+        margin: 1.5rem 0 1rem 0;
+        color: #f7f7f2;
+        text-align: center;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+        z-index: 1;
+      }
+
+      .contact-text {
+        color: #f7f7f2;
+        font-size: 1.15rem;
+        text-align: center;
+        margin-bottom: 1.25rem;
+        line-height: 1.6;
+        max-width: 28rem;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0 auto 1rem auto;
+        width: 100%;
+        max-width: 480px;
+        gap: 1.25rem;
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        z-index: 1;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        background: rgba(20, 34, 46, 0.7);
+        border-radius: 40px;
+        box-shadow: 0 0.125rem 1rem 0 rgba(0, 0, 0, 0.18);
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font-size: 1.18rem;
+        font-family: "Roboto Condensed", Arial, sans-serif;
+        letter-spacing: 0.5px;
+        padding: 1.1rem 1.5rem;
+        outline: none;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        resize: none;
+      }
+
+      /* Prevent weird autocomplete styling on all browsers (copied from index.html) */
+      .contact-form input:-webkit-autofill,
+      .contact-form input:-webkit-autofill:hover,
+      .contact-form input:-webkit-autofill:focus,
+      .contact-form input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+        -webkit-text-fill-color: #fff !important;
+        font-size: 1.18rem !important;
+        font-family: "Roboto Condensed", Arial, sans-serif !important;
+        transition: background-color 5000s ease-in-out 0s;
+        background-color: transparent !important;
+      }
+
+      /* Firefox autocomplete styling */
+      .contact-form input:-moz-autofill {
+        background-color: transparent !important;
+        color: #fff !important;
+        font-size: 1.18rem !important;
+        font-family: "Roboto Condensed", Arial, sans-serif !important;
+      }
+
+      /* Edge autocomplete styling */
+      .contact-form input:-ms-input-placeholder {
+        color: #b2bfc9 !important;
+      }
+
+      /* iOS Safari autocomplete styling */
+      .contact-form input {
+        -webkit-appearance: none;
+      }
+
+      /* Remove iOS Safari default styling */
+      .contact-form input::-webkit-search-decoration,
+      .contact-form input::-webkit-search-cancel-button,
+      .contact-form input::-webkit-search-results-button,
+      .contact-form input::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+      }
+
+      /* Remove Chrome/Safari autofill styling */
+      .contact-form input::-webkit-contacts-auto-fill-button,
+      .contact-form input::-webkit-credentials-auto-fill-button {
+        visibility: hidden;
+        display: none !important;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border: 2px solid #23d18b;
+      }
+
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: #b2bfc9;
+        opacity: 1;
+        font-size: 1.13rem;
+      }
+
+      .contact-form textarea {
+        min-height: 10rem;
+        max-height: 12rem;
+        border-radius: 24px;
+        resize: none;
+      }
+
+      .contact-form button {
+        font-family: "Roboto Condensed", Arial, sans-serif;
+        background: linear-gradient(90deg, #23d18b 0%, #1bbd76 100%);
+        color: #fff;
+        font-weight: 700;
+        border: none;
+        border-radius: 40px;
+        padding: 1.1rem 0;
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        box-shadow: 0 2px 16px 0 rgba(35, 209, 139, 0.1);
+        transition: opacity 0.2s;
+        width: 40%;
+        align-self: center;
+        letter-spacing: 1px;
+      }
+
+      .contact-form button:hover {
+        opacity: 0.8;
+      }
+
+      .contact-form button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background: #666;
+        border-color: #555;
+        color: #ccc;
+      }
+
+      .socials {
+        display: flex;
+        fill: white;
+        gap: 2.25rem;
+        margin-top: 1.125rem;
+        margin-bottom: 0;
+      }
+
+      .socials a {
+        color: #fff;
+        font-size: 2.2rem;
+        display: flex;
+        align-items: center;
+        transition: color 0.2s;
+      }
+
+      .socials a:hover {
+        color: #23d18b;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          overflow: hidden;
+        }
+
+        .logo img {
+          width: 13.125rem;
+        }
+
+        .logo-gradient {
+          top: 45%;
+          width: 100%;
+        }
+
+        .contact-form {
+          width: 80%;
+          gap: 1rem;
+          box-sizing: border-box;
+          padding: 0;
+        }
+
+        .contact-form button {
+          width: 100%;
+          font-size: 1.1rem;
+          padding: 1rem 0;
+          box-sizing: border-box;
+        }
+
+        .contact-heading {
+          font-size: 2.1rem;
+        }
+
+        .contact-text {
+          font-size: 1rem;
+          max-width: 23rem;
+        }
+
+        .socials {
+          gap: 1.375rem;
+        }
+      }
+
+      .back-arrow {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        padding: 0.15rem;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+        border-radius: 50%;
+        text-decoration: none;
+      }
+      .back-arrow:hover {
+        opacity: 1;
+      }
+      .back-arrow svg {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="back-arrow" aria-label="Back to home">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15 21L6 12L15 3"
+          stroke="#b2bfc9"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+    <div class="container" style="position: relative">
+      <div class="logo-gradient"></div>
+      <div class="logo">
+        <img src="fantasybet_logo_transparent.png" alt="FantasyBet Logo" />
+      </div>
+      <div class="contact-heading">CONTACT US</div>
+      <div class="contact-text">
+        Have questions? Want to get in touch? <br />
+        Send us a message!
+      </div>
+      <form id="contact-form" class="contact-form" autocomplete="on">
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea
+          id="response-message"
+          name="message"
+          placeholder="Your message..."
+          required
+        ></textarea>
+        <button type="submit" id="submit-btn">SUBMIT</button>
+        <input type="hidden" name="_captcha" value="false" />
+      </form>
+    </div>
+  </body>
+  <script>
+    const form = document.getElementById("contact-form");
+    const button = document.getElementById("submit-btn");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      formData.append("_captcha", "false");
+
+      try {
+        const res = await fetch(
+          "https://formsubmit.co/ajax/bb4a331f71783bc539976d5dd22e685a",
+          {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body: formData,
+          }
+        );
+
+        if (res.ok) {
+          form.reset();
+          button.textContent = "Thanks!";
+          button.disabled = true;
+        } else {
+          console.log(res);
+        }
+      } catch (error) {
+        console.error("Submission error:", error);
+      }
+    });
+  </script>
+</html>
